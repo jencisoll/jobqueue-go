@@ -1,0 +1,21 @@
+# La versión del formato de docker-compose
+version: '3.8'
+
+services:
+  # Servicio de PostgreSQL
+  postgres:
+    image: postgres:16-alpine   # imagen oficial de PostgreSQL, alpine es más liviana
+    container_name: jobqueue_db
+    environment:
+      POSTGRES_USER: admin         # usuario de la base de datos
+      POSTGRES_PASSWORD: secret123 # contraseña
+      POSTGRES_DB: jobqueue        # nombre de la base de datos
+    ports:
+      - "5432:5432"  # puerto_del_host:puerto_del_contenedor
+    volumes:
+      # Guardamos los datos en disco para que no se pierdan si el contenedor se reinicia
+      - postgres_data:/var/lib/postgresql/data
+
+# Declaramos el volumen que usamos arriba
+volumes:
+  postgres_data:

@@ -1,0 +1,7 @@
+.env
+//.env posee contraseñas, Nunca se sube a Github
+
+jobqueue-api
+
+vendor/
+

@@ -1,0 +1,29 @@
+package database
+
+import (
+"database/sql"
+"fmt"
+"log"
+_"github.com/lib/pq"
+)
+
+var DB *sql.DB
+
+type Config struct {
+Host string  //dirección del servidor, ejemplo: "localhost"
+Port string //puerto de  PostgreSQL, por defecto "5432"
+User string //usuario de la base de datos
+Password string //contraseña
+DBName string	//nombre de la  base de  datos
+}
+
+//Connect establece la conexion con PostgreSQL
+func Connect(cfg Config) error {
+	connStr :=  fmt.Sprintf(
+"host=%s port=%s users=%s password=%s sslmode=disable",
+cfg.Host,  cfg.Port, cfg.User, cfg.Password, cfg.DBName,)
+
+db, err := sql.Open("postgres", connStr)
+
+wrqwerqwerq
+
